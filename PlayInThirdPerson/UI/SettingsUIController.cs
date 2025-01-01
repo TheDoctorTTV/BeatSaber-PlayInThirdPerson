@@ -3,51 +3,51 @@ using BeatSaberMarkupLanguage.ViewControllers;
 
 namespace PlayInThirdPerson.UI
 {
-    [HotReload] // Enables hot-reloading for debugging purposes
-    [ViewDefinition("PlayInThirdPerson.UI.SettingsUI.bsml")] // Path to the BSML file
+    [HotReload]
+    [ViewDefinition("PlayInThirdPerson.UI.SettingsUI.bsml")]
     public class SettingsUIController : BSMLAutomaticViewController
     {
-        // Toggle for enabling/disabling third-person mode
+        // Enable or disable third-person mode
         [UIValue("boolEnable")]
         public bool EnableThirdPerson
         {
-            get => ConfigHelper.Config.Enabled; // Load the value from the config
+            get => ConfigHelper.Config.Enabled;
             set
             {
-                ConfigHelper.Config.Enabled = value; // Save the value to the config
-                ConfigHelper.SaveNewConfig(ConfigHelper.Config);
+                ConfigHelper.Config.Enabled = value;
+                ConfigHelper.SaveConfig();
             }
         }
 
-        // Property for adjusting the Y-axis offset
+        // Slider for Camera Offset Y
         [UIValue("cameraOffsetY")]
         public float CameraOffsetY
         {
-            get => ConfigHelper.Config.Offset.Y; // Load the value from the config
+            get => ConfigHelper.Config.Offset.Y;
             set
             {
-                ConfigHelper.Config.Offset.Y = value; // Save the value to the config
-                ConfigHelper.SaveNewConfig(ConfigHelper.Config);
+                ConfigHelper.Config.Offset.Y = value;
+                ConfigHelper.SaveConfig();
             }
         }
 
-        // Property for adjusting the Z-axis offset
+        // Slider for Camera Offset Z
         [UIValue("cameraOffsetZ")]
         public float CameraOffsetZ
         {
-            get => ConfigHelper.Config.Offset.Z; // Load the value from the config
+            get => ConfigHelper.Config.Offset.Z;
             set
             {
-                ConfigHelper.Config.Offset.Z = value; // Save the value to the config
-                ConfigHelper.SaveNewConfig(ConfigHelper.Config);
+                ConfigHelper.Config.Offset.Z = value;
+                ConfigHelper.SaveConfig();
             }
         }
 
-        // Button action to apply changes
+        // Apply button action
         [UIAction("apply")]
         private void ApplyChanges()
         {
-            ConfigHelper.SaveNewConfig(ConfigHelper.Config); // Save all changes
+            ConfigHelper.SaveConfig();
         }
     }
 }
