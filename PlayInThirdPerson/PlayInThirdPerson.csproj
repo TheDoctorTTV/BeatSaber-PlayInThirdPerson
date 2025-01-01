@@ -9,7 +9,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlayInThirdPerson</RootNamespace>
     <AssemblyName>PlayInThirdPerson</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <LangVersion>8.0</LangVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -35,6 +36,116 @@
     <Reference Include="0Harmony">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Libs\0Harmony.dll</HintPath>
     </Reference>
+    <Reference Include="AssetBundleLoadingTools">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Plugins\AssetBundleLoadingTools.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="BeatSaber.ViewSystem">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Beat Saber_Data\Managed\BeatSaber.ViewSystem.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="BeatSaviorUI">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Plugins\BeatSaviorUI.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="BGLib.AppFlow">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Beat Saber_Data\Managed\BGLib.AppFlow.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="BSAssetLib">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Plugins\BSAssetLib.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="BSML">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Plugins\BSML.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="BS_Utils">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Plugins\BS_Utils.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Hive.Versioning">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\Hive.Versioning.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="INIParser">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\INIParser.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="IPA.Injector">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Beat Saber_Data\Managed\IPA.Injector.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MessagePack">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\MessagePack.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\Mono.Cecil.Mdb.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\Mono.Cecil.Rocks.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MonoMod.RuntimeDetour">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\MonoMod.RuntimeDetour.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MonoMod.Utils">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\MonoMod.Utils.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\protobuf-net.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SemVer">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\SemVer.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SiraUtil">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Plugins\SiraUtil.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\SixLabors.ImageSharp.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SongCore">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Plugins\SongCore.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,15 +156,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="IPA.Loader">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\IPA.Loader.dll</HintPath>
-    </Reference>
-	<Reference Include="ScoreSaber">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\ScoreSaber.dll</HintPath>
-    </Reference>
-    <Reference Include="BSML">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\BSML.dll</HintPath>
-    </Reference>
-    <Reference Include="BS_Utils">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\BS_Utils.dll</HintPath>
     </Reference>
     <Reference Include="Main">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\Main.dll</HintPath>
@@ -98,28 +200,23 @@
     <Reference Include="Zenject-usage">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\Zenject-usage.dll</HintPath>
     </Reference>
-    <Reference Include="SiraUtil">
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\SiraUtil.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Polyglot.Scripts, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ZenjectExtension">
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Beat Saber_Data\Managed\ZenjectExtension.dll</HintPath>
+      <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\Polyglot.Scripts.dll</HintPath>
-    </Reference>
-    <Reference Include="SongCore, Version=2.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\SongCore.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Harmony Patches\PlayerTransformsUpdate.cs" />
+    <Compile Include="PlayInThirdPersonInstaller.cs" />
     <Compile Include="ReflectionHelper.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CameraMover.cs" />
-    <Compile Include="UI\SettingsUI.cs" />
+    <Compile Include="SettableSetting.cs" />
+    <Compile Include="UI\SettingsUIController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />

@@ -1,91 +1,84 @@
-﻿using BeatSaberMarkupLanguage.Settings;
+﻿using BeatSaberMarkupLanguage.GameplaySetup;
 using HarmonyLib;
 using IPA;
+using IPA.Logging;
+using BS_Utils.Utilities;
 using PlayInThirdPerson.UI;
-using ScoreSaber;
+using Zenject;
 using System;
-using System.Linq;
 using System.Reflection;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace PlayInThirdPerson
 {
-	[Plugin(RuntimeOptions.SingleStartInit)]
-	public class Plugin
-	{
-		public static bool IsEnabled => ConfigHelper.Config.Enabled && !IsPlayingReplay;
+    [Plugin(RuntimeOptions.SingleStartInit)]
+    public class Plugin
+    {
+        public static Logger Logger { get; private set; }
 
-		private static bool IsPlayingReplay;
+        // Convenience property for enabling/disabling third-person mode
+        public static bool IsEnabled => ConfigHelper.Config.Enabled;
 
-		private void SetupCamera()
-		{
-			Transform mainCamera = Camera.main.transform;
-			Transform cameraMover = new GameObject("Camera Mover").transform;
-			cameraMover.SetParent(mainCamera.parent, false);
-			cameraMover.gameObject.AddComponent<CameraMover>();
-			mainCamera.SetParent(cameraMover, true);
-		}
+        private readonly Harmony _harmony = new Harmony("com.Nicky.BeatSaber.PlayInThirdPerson");
 
-		private void MenuSceneLoaded()
-		{
-			IsPlayingReplay = false;
-		}
+        [Init]
+        public void Init(Logger logger)
+        {
+            Logger = logger;
+            ConfigHelper.LoadConfig();
+        }
 
-		private void LateMenuSceneLoadedFresh(ScenesTransitionSetupDataSO obj)
-		{
-			SetupCamera();
-		}
+        [OnStart]
+        public void OnApplicationStart()
+        {
+            try
+            {
+                _harmony.PatchAll(Assembly.GetExecutingAssembly());
+                BS_Utils.Utilities.BSEvents.menuSceneLoadedFresh += AddGameplayTab;
 
-		private void GameSceneLoaded()
-		{
+                Logger.Info("PlayInThirdPerson mod initialized successfully.");
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"Error initializing PlayInThirdPerson mod: {ex.Message}");
+            }
+        }
 
-			ReplayPlayer replayPlayer = GameObject.FindObjectOfType<ReplayPlayer>();
-			IsPlayingReplay = (replayPlayer != null) ? replayPlayer.playbackEnabled : false;
+        private void AddGameplayTab()
+        {
+            try
+            {
+                GameplaySetup.Instance.AddTab(
+                    "Third Person",
+                    "PlayInThirdPerson.UI.SettingsUI.bsml",
+                    new SettingsUIController()
+                );
 
-			if (IsEnabled)
-			{
-				SetupCamera();
-			}
-		}
+                Logger.Info("Settings tab added successfully.");
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"Error adding settings tab: {ex.Message}");
+            }
+        }
 
-		[OnStart]
-		public void OnApplicationStart()
-		{
-			try
-			{
-				Harmony harmony = new Harmony("com.Nicky.BeatSaber.PlayInThirdPerson");
-				harmony.PatchAll(Assembly.GetExecutingAssembly());
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("[PlayInThirdPerson] This plugin requires Harmony.");
-				Console.WriteLine(e);
-			}
+        [OnExit]
+        public void OnApplicationQuit()
+        {
+            try
+            {
+                _harmony.UnpatchSelf();
 
-			BS_Utils.Utilities.BSEvents.OnLoad();
-			BS_Utils.Utilities.BSEvents.lateMenuSceneLoadedFresh += LateMenuSceneLoadedFresh;
-			BS_Utils.Utilities.BSEvents.menuSceneLoaded += MenuSceneLoaded;
-			BS_Utils.Utilities.BSEvents.gameSceneLoaded += GameSceneLoaded;
-			SceneManager.activeSceneChanged += OnActiveSceneChanged;
-			ConfigHelper.LoadConfig();
-		}
+                if (GameplaySetup.Instance != null)
+                {
+                    GameplaySetup.Instance.RemoveTab("Third Person");
+                }
 
-		[OnExit]
-		public void OnApplicationQuit()
-		{
-			BS_Utils.Utilities.BSEvents.gameSceneLoaded -= GameSceneLoaded;
-			BS_Utils.Utilities.BSEvents.menuSceneLoaded -= MenuSceneLoaded;
-			BS_Utils.Utilities.BSEvents.lateMenuSceneLoadedFresh -= LateMenuSceneLoadedFresh;
-		}
-
-		public void OnActiveSceneChanged(Scene prevScene, Scene nextScene)
-		{
-			if (nextScene.name == "MenuViewControllers" && prevScene.name == "EmptyTransition")
-			{
-				BSMLSettings.instance.AddSettingsMenu("Third Person", "PlayInThirdPerson.UI.SettingsUI.bsml", SettingsUI.instance);
-			}
-		}
-	}
+                Logger.Info("PlayInThirdPerson mod shut down successfully.");
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"Error shutting down PlayInThirdPerson mod: {ex.Message}");
+            }
+        }
+    }
 }

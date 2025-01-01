@@ -1,5 +1,15 @@
-﻿<settings-container>
-  <bool-setting text='Enabled' value='boolEnable'/>
-  <slider-setting text='Offset Y' min='0' max='1' increment='0.1' value='cameraOffsetY' integer-only='false' />
-  <slider-setting text='Offset Z' min='-2' max='0' increment='0.1' value='cameraOffsetZ' integer-only='false' />
-</settings-container>
+﻿<vertical>
+  <text text="Third Person Settings" align="Center" font-size="6" />
+  <toggle-setting id="boolEnable" text="Enable Third Person Mode" value="{boolEnable}" />
+  <horizontal>
+    <text text="Camera Offset Y:" />
+    <float-setting id="cameraOffsetY" value="{cameraOffsetY}" increment="0.1" />
+  </horizontal>
+  <horizontal>
+    <text text="Camera Offset Z:" />
+    <float-setting id="cameraOffsetZ" value="{cameraOffsetZ}" increment="0.1" />
+  </horizontal>
+  <horizontal>
+    <button text="Apply" click-event="apply" />
+  </horizontal>
+</vertical>
