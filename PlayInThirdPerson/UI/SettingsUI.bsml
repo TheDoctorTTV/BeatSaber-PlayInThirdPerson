@@ -1,13 +1,17 @@
 ﻿<vertical>
   <text text="Third Person Settings" align="Center" font-size="6" />
-  <toggle-setting id="boolEnable" text="Enable Third Person Mode" value="{boolEnable}" />
+  <toggle-setting id="boolEnable" text="Enable Third Person Mode" value="~boolEnable" />
   <horizontal>
     <text text="Camera Offset Y:" />
-    <float-setting id="cameraOffsetY" value="{cameraOffsetY}" increment="0.1" />
+    <float-setting id="cameraOffsetY" value="~cameraOffsetY" increment="0.1" />
+  </horizontal>
+  <horizontal>
+    <text text="Camera Offset X:" />
+    <float-setting id="cameraOffsetX" value="~cameraOffsetX" increment="0.1" />
   </horizontal>
   <horizontal>
     <text text="Camera Offset Z:" />
-    <float-setting id="cameraOffsetZ" value="{cameraOffsetZ}" increment="0.1" />
+    <float-setting id="cameraOffsetZ" value="~cameraOffsetZ" increment="0.1" />
   </horizontal>
   <horizontal>
     <button text="Apply" click-event="apply" />
