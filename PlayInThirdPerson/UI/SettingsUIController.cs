@@ -30,6 +30,7 @@ namespace PlayInThirdPerson.UI
                 ConfigHelper.SaveNewConfig(ConfigHelper.Config);
             }
         }
+
         // Property for adjusting the X-axis offset
         [UIValue("cameraOffsetX")]
         public float CameraOffsetX
