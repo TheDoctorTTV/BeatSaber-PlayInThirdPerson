@@ -76,6 +76,11 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="HMRendering, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <Private>False</Private>
+      <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1 (1)\Beat Saber_Data\Managed\HMRendering.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="INIParser">
       <HintPath>G:\BS Manager\BSManager\BSInstances\1.39.1\Libs\INIParser.dll</HintPath>
       <Private>False</Private>
