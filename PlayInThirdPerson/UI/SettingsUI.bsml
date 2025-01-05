@@ -2,15 +2,9 @@
     xsi:noNamespaceSchemaLocation="https://monkeymanboy.github.io/BSML-Docs/BSMLSchema.xsd">
   <vertical>
     <text text="Third Person Settings" align="Center" font-size="6" />
-    <toggle-setting text="Enable Third Person Mode" value="boolEnable" />
-    <horizontal>
-      <text text="Camera Offset Y:" />
-      <slider-setting value="cameraOffsetY" min="0" max="1" increment="0.1" />
-    </horizontal>
-    <horizontal>
-      <text text="Camera Offset Z:" />
-      <slider-setting value="cameraOffsetZ" min="-2" max="0" increment="0.1" />
-    </horizontal>
+    <toggle-setting id="boolEnable" text="Enable Third Person Mode" value="boolEnable" />
+      <slider-setting text="Camera Offset Y" id="cameraOffsetY" value="cameraOffsetY" min="0" max="1" increment="0.1" />
+      <slider-setting text="Camera Offset Z" id="cameraOffsetZ" value="cameraOffsetZ" min="-2" max="0" increment="0.1" />
     <button text="Apply" click-event="apply" />
   </vertical>
 </bg>
