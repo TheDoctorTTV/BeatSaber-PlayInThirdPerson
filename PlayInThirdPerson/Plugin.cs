@@ -1,29 +1,24 @@
 ﻿using BeatSaberMarkupLanguage.GameplaySetup;
 using HarmonyLib;
 using IPA;
-using IPA.Logging;
 using BS_Utils.Utilities;
 using PlayInThirdPerson.UI;
 using Zenject;
-using System;
 using System.Reflection;
+using UnityEngine;
 
 namespace PlayInThirdPerson
 {
     [Plugin(RuntimeOptions.SingleStartInit)]
     public class Plugin
     {
-        public static Logger Logger { get; private set; }
-
-        // Convenience property for enabling/disabling third-person mode
         public static bool IsEnabled => ConfigHelper.Config.Enabled;
 
         private readonly Harmony _harmony = new Harmony("com.Nicky.BeatSaber.PlayInThirdPerson");
 
         [Init]
-        public void Init(Logger logger)
+        public void Init()
         {
-            Logger = logger;
             ConfigHelper.LoadConfig();
         }
 
@@ -34,13 +29,9 @@ namespace PlayInThirdPerson
             {
                 _harmony.PatchAll(Assembly.GetExecutingAssembly());
                 BS_Utils.Utilities.BSEvents.menuSceneLoadedFresh += AddGameplayTab;
-
-                Logger.Info("PlayInThirdPerson mod initialized successfully.");
+                BS_Utils.Utilities.BSEvents.gameSceneLoaded += GameSceneLoaded;
             }
-            catch (Exception ex)
-            {
-                Logger.Error($"Error initializing PlayInThirdPerson mod: {ex.Message}");
-            }
+            catch { }
         }
 
         private void AddGameplayTab()
@@ -52,13 +43,40 @@ namespace PlayInThirdPerson
                     "PlayInThirdPerson.UI.SettingsUI.bsml",
                     new SettingsUIController()
                 );
+            }
+            catch { }
+        }
 
-                Logger.Info("Settings tab added successfully.");
-            }
-            catch (Exception ex)
+        private void GameSceneLoaded()
+        {
+            try
             {
-                Logger.Error($"Error adding settings tab: {ex.Message}");
+                SetupCamera();
             }
+            catch { }
+        }
+
+        private void SetupCamera()
+        {
+            try
+            {
+                // Find the main camera
+                Transform mainCamera = Camera.main?.transform;
+
+                if (mainCamera == null)
+                {
+                    return;
+                }
+
+                // Create and attach Camera Mover
+                Transform cameraMover = new GameObject("Camera Mover").transform;
+                cameraMover.SetParent(mainCamera.parent, false);
+                cameraMover.gameObject.AddComponent<CameraMover>();
+
+                // Reparent the main camera
+                mainCamera.SetParent(cameraMover, true);
+            }
+            catch { }
         }
 
         [OnExit]
@@ -72,13 +90,8 @@ namespace PlayInThirdPerson
                 {
                     GameplaySetup.Instance.RemoveTab("Third Person");
                 }
-
-                Logger.Info("PlayInThirdPerson mod shut down successfully.");
             }
-            catch (Exception ex)
-            {
-                Logger.Error($"Error shutting down PlayInThirdPerson mod: {ex.Message}");
-            }
+            catch { }
         }
     }
 }
