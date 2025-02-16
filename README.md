@@ -25,7 +25,7 @@ Below are the configurable settings for the plugin:
 
 **TheDoctorTTV**  
 
-![avatar](https://images.weserv.nl/?url=cdn.discordapp.com/avatars/624961413500108830/a_9f310e9c910a17ac38572b29fb518d66.webp&h=80&w=80&fit=cover&mask=circle&maxage=7d)
+![avatar](https://images.weserv.nl/?url=cdn.discordapp.com/avatars/624961413500108830/8c31bf860af128619f5a7c3bf544e779.webp&h=80&w=80&fit=cover&mask=circle&maxage=7d)
 
 **Azzy123**
 
