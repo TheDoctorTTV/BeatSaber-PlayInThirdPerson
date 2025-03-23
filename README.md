@@ -5,7 +5,7 @@
 
 ## Requirements
 Make sure you have the following installed:
-- **Beat Saber** version 1.39.1
+- **Beat Saber** minimum version 1.39.1
 - **BSUtils**
 - **Harmony**
 - **BSML**
