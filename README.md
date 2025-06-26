@@ -24,12 +24,11 @@ Below are the configurable settings for the plugin:
 ## Current Maintainers
 
 **TheDoctorTTV**  
+![avatar](https://github.com/TheDoctorTTV.png?size=80)
 
-![avatar](https://images.weserv.nl/?url=cdn.discordapp.com/avatars/624961413500108830/8c31bf860af128619f5a7c3bf544e779.webp&h=80&w=80&fit=cover&mask=circle&maxage=7d)
+**Azzy123**  
+![avatar](https://github.com/Azzy1235.png?size=80)
 
-**Azzy123**
-
-![avatar](https://images.weserv.nl/?url=cdn.discordapp.com/avatars/345351472936124417/2f9b4d5b9c750ff84fae1c6ec91a15e6.webp&h=80&w=80&fit=cover&mask=circle&maxage=7d)
 
 ---
 
